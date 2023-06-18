@@ -1,0 +1,34 @@
+Add Product
+Update Product
+Delete Product
+View All Product
+View Product
+
+Add Category
+Update Category
+Delete Category
+View All Category
+View Category
+
+Database design
+
+category
+- ID
+- NAME
+- CREATED_ON
+- UPDATED_ON
+- ACTIVE_STATUS
+
+product
+- ID
+- NAME
+- PRICE
+- CREATED_ON
+- UPDATED_ON
+- ACTIVE_STATUS
+- CATEGORY_ID
+
+* Relationships
+
+1 category can have Many products
+1 product belongs to 1 category

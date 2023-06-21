@@ -51,10 +51,12 @@ public class CategoryController {
     
     @RequestMapping("/showcategories")
     public String showCategories(Model model) {
+    	log.debug("<<<<<<<< showCategories()");
     	System.out.println("hey");
     	 List<CategoryEntity> categories = this.categoryService.getCategories();
     	 System.out.println("categories"+categories);
     	 model.addAttribute("categories",categories);
+    	 log.debug("showCategories() >>>>>>>>>>");
     	return "categoryList";
     }
    

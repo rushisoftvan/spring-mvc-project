@@ -47,4 +47,7 @@ public class CategoryService {
     public List<CategoryEntity> getCategories(){
         return this.categoryRepository.findAll();
     }
+    
+    
+
 }

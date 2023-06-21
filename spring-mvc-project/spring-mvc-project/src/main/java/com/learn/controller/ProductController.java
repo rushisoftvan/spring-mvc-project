@@ -3,6 +3,7 @@ package com.learn.controller;
 import com.learn.entity.CategoryEntity;
 import com.learn.entity.ProductEntity;
 import com.learn.enums.StatusEnum;
+import com.learn.exception.ProductNotFoundException;
 import com.learn.service.CategoryService;
 import com.learn.service.ProductService;
 import org.slf4j.Logger;
@@ -56,6 +57,10 @@ public class ProductController {
     @RequestMapping("/all")
     public String getProducts(Model model) {
         List<ProductEntity> products = this.productService.getProducts();
+        //if(products.isEmpty()) {
+//        	throw new ProductNotFoundException("product is not found");
+        	
+        //}
         model.addAttribute("products", products);
         return "productsList";
     }

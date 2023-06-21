@@ -5,9 +5,10 @@
 <html>
 <head>
     <title>Add Product</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-    <div align="center">
+    <div align="center" class="border border-primary w-50 justify-content-center"> 
             <h2>Add Product</h2>
             <form:form action="save" method="post" modelAttribute="product">
                 <form:label path="name">Name :</form:label>

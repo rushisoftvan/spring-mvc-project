@@ -1,14 +1,23 @@
+
+
 package com.learn.controller;
 
 import com.learn.entity.CategoryEntity;
 import com.learn.service.CategoryService;
+
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/categories")
@@ -39,5 +48,15 @@ public class CategoryController {
         log.debug("save() >>>>>>>>>>");
         return "redirect:/";
     }
-
+    
+    @RequestMapping("/showcategories")
+    public String showCategories(Model model) {
+    	System.out.println("hey");
+    	 List<CategoryEntity> categories = this.categoryService.getCategories();
+    	 System.out.println("categories"+categories);
+    	 model.addAttribute("categories",categories);
+    	return "categoryList";
+    }
+   
+    
 }

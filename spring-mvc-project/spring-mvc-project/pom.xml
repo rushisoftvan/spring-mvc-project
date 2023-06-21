@@ -42,7 +42,7 @@
       <version>${springframework.version}</version>
     </dependency>
 
-    <!-- Hibernate -->
+    
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
@@ -137,6 +137,7 @@
 <!--          </execution>-->
 <!--        </executions>-->
 <!--      </plugin>-->
+<!-- </plugin -->
 
     </plugins>
   </build>

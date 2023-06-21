@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <html>
 <head>
 <title>Product List</title>
@@ -10,7 +11,7 @@
 	<div align="center">
 		<h2>Product List</h2>
 		<div>
-		   <a href="add">Add Product</a><br/>
+		   <a  href="add">Add Product</a><br/>
 		</div>
 		<table border="2" width="70%" cellpadding="2">
 			<tr>

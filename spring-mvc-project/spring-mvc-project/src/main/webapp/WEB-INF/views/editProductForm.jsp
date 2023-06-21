@@ -23,12 +23,12 @@
                 <form:label path="category">Select Category :</form:label>
                 <form:select path="category.id">
                  <form:options items="${categories}" itemValue="id" itemLabel="name" />
-                </form:select>
+                </form:select></br></br>
 
-                <form:label path="activeStatus">Select Category :</form:label>
+                <form:label path="activeStatus">Select Status :</form:label>
                 <form:select path="activeStatus">
                 <form:options items="${statusList}" />
-                </form:select>
+                </form:select></br></br>
 
 
                 <form:button type="submit">Update</form:button>

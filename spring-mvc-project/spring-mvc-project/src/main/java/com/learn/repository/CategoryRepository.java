@@ -1,6 +1,8 @@
 package com.learn.repository;
 
 import com.learn.entity.CategoryEntity;
+import com.learn.entity.ProductEntity;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,7 +22,8 @@ public class CategoryRepository {
         this.em.persist(entity);
         return entity;
     }
-
+    
+    @Transactional
     public CategoryEntity update(CategoryEntity entity){
         this.em.merge(entity);
         return entity;
@@ -32,10 +35,11 @@ public class CategoryRepository {
     }
 
     public List<CategoryEntity> findAll(){
-        String jpql = "SELECT c FROM CategoryEntity c WHERE c.activeStatus = 'ACTIVE'";
+        String jpql = "SELECT c FROM CategoryEntity c";
         TypedQuery<CategoryEntity> query = this.em.createQuery(jpql, CategoryEntity.class);
         List<CategoryEntity> categories = query.getResultList();
+    	
         return categories;
     }
-
+  
 }

@@ -3,6 +3,8 @@
 package com.learn.controller;
 
 import com.learn.entity.CategoryEntity;
+import com.learn.entity.ProductEntity;
+import com.learn.enums.StatusEnum;
 import com.learn.service.CategoryService;
 
 import java.util.List;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -56,9 +59,42 @@ public class CategoryController {
     	 List<CategoryEntity> categories = this.categoryService.getCategories();
     	 System.out.println("categories"+categories);
     	 model.addAttribute("categories",categories);
-    	 log.debug("showCategories() >>>>>>>>>>");
+    	  log.debug("showCategories() >>>>>>>>>>");
     	return "categoryList";
     }
-   
+     
+    
+    @RequestMapping("/editPage/{id}")
+    public String showEditPage(@PathVariable("id") Integer categoryId, Model model) {
+        log.debug("<<<<<<< showEditPage()");
+        log.debug("Updated category id :: {}", categoryId);
+
+        StatusEnum[] statusList = StatusEnum.values();
+
+        
+        CategoryEntity category = this.categoryService.getcategoryById(categoryId);
+
+        //model.addAttribute("product", productEntity);
+        model.addAttribute("category", category);
+        model.addAttribute("statusList", statusList);
+        log.debug("showEditPage() >>>>>>>>");
+        return "editCategoryForm";
+    }
+    
+    
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String update(@ModelAttribute("category") CategoryEntity categoryEntity) {
+        log.debug("<<<<<<<< update()");
+        log.debug("category id :: {}" , categoryEntity.getId());
+        log.debug("category Name : {}", categoryEntity.getName());
+        log.debug("category status :: {}" , categoryEntity.getActiveStatus());
+        this.categoryService.saveOrUpdate(categoryEntity);
+        log.info("Product updated successfully with id :: {} ", categoryEntity.getId());
+
+        log.debug("update() >>>>>>>>>>");
+
+        return "redirect:showcategories";
+    }
+    
     
 }

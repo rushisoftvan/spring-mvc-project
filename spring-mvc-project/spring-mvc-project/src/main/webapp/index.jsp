@@ -14,8 +14,8 @@
      <h1 class="bg-primary text-white">Welcome To My Small E-Commerce Application</h1>
       <a class="btn btn-success" href="categories/add">Add Category</a><br/><br/>
       <a class="btn btn-success" href="products/add">Add Product</a><br/></br>
-      <a class="btn btn-success" href="products/all">View Products</a><br/>
-      <a class="btn btn-success" href="categories/showcategories">View categories</a><br/>
+      <a class="btn btn-success" href="products/all">View Products</a><br/></br>
+      <a class="btn btn-success" href="categories/showcategories">View categories</a><br/></br>
    </div>
 </body>
 </html>

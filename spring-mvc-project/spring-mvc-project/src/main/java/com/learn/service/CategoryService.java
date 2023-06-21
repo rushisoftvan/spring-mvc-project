@@ -22,7 +22,7 @@ public class CategoryService {
     public CategoryService(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
-
+   
     public void saveOrUpdate(CategoryEntity categoryEntity){
         log.debug("<<<<< saveOrUpdate()");
         if (Objects.isNull(categoryEntity.getId())){
@@ -41,13 +41,17 @@ public class CategoryService {
         dbCategoryObject.setUpdatedOn(LocalDateTime.now());
         dbCategoryObject.setActiveStatus(categoryEntity.getActiveStatus());
         dbCategoryObject.setName(categoryEntity.getName());
-        this.categoryRepository.update(categoryEntity);
+        this.categoryRepository.update(dbCategoryObject);
     }
 
     public List<CategoryEntity> getCategories(){
         return this.categoryRepository.findAll();
     }
     
+    
+    public CategoryEntity getcategoryById(Integer id) {
+    	return this.categoryRepository.findById(id);
+    }
     
 
 }
